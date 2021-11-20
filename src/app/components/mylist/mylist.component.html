@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<article>
+  <section class="row">
+    <div class="container">
+      <ul>
+        <li class="orderMyList">
+          <button class="btn" (click)="changeLayoutToGrid()">
+            <i class="fas fa-th"></i>
+          </button>
+          <button class="btn" (click)="changeLayoutToGrid()">
+            <i class="fas fa-bars"></i>
+          </button>
+        </li>
+      </ul>
+      <article [class.cards]="gridLayout">
+        <mat-card *ngFor="let item of theList" [class.card__item]="gridLayout">
+          <mat-card-title-group class="favs">
+            <img mat-card-sm-image [src]="item.poster" />
+            <p class="mat-h2">
+              {{ item.title }}
+            </p>
+            <button
+              mat-icon-button
+              color="warn"
+              aria-label="Example icon button with a heart icon"
+            >
+              <mat-icon class="close-icon" (click)="deleteFav(item)"
+                >close</mat-icon
+              >
+            </button>
+          </mat-card-title-group>
+        </mat-card>
+      </article>
+    </div>
+  </section>
+</article>
+
+<!-- testing -->
+
+<!-- <mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz
+      breeds of dog from Japan. A small, agile dog that copes very well with
+      mountainous terrain, the Shiba Inu was originally bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card> -->

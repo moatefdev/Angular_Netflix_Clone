@@ -1,0 +1,20 @@
+article {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  .login-bg {
+    width: 45%;
+    figure {
+      margin: 0;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+  .form {
+    width: 45%;
+  }
+}

@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+<section class="row">
+  <div class="container-fluid">
+    <article>
+      <div class="col-md-3">
+        <!-- Start Filter Section -->
+        <section class="filters">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button
+                    class="btn btn-block text-left"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    <mat-icon aria-hidden="false" aria-label="Example home icon"
+                      >filter_list
+                    </mat-icon>
+                    Filter
+                  </button>
+                </h2>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <div class="category">
+                    <p>Genres:</p>
+                    <!-- <select
+                      [(ngModel)]="defaultSelectedValue"
+                      id="myselect"
+                      class="ms-auto"
+                      #myGenres
+                      (change)="changeGenre(myGenres.value, myGenres.options)"
+                    >
+                      <option *ngFor="let genre of genres" value="{{ genre.id }}">
+                        {{ genre.name }}
+                      </option>
+                    </select> -->
+                    <ul>
+                      <li *ngFor="let genre of genres">
+                        <button
+                          [ngClass]="
+                            genre.selectedClass
+                              ? 'btn btn-primary'
+                              : 'btn btn-outline-primary'
+                          "
+                          (click)="selectGenre(genre)"
+                        >
+                          {{ genre.name }}
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search_btn">
+            <button
+              class="btn btn-info btn-lg btn-block mt-3"
+              [hidden]="searchBtnIsHidden"
+              (click)="changeGenre()"
+            >
+              Search
+            </button>
+          </div>
+        </section>
+        <!-- End Filter Section -->
+      </div>
+      <div class="col-md-9">
+        <section class="movies">
+          <!-- <h2>{{ defaultGenre }}</h2> -->
+          <div class="items">
+            <figure *ngFor="let item of theMovies">
+              <app-movies-item-box
+                [item]="item"
+                [imgLink]="imgLink"
+                (clickEvent)="addToFav($event, imgLink)"
+                mat-stroked-button
+                (click)="openSnackBar()"
+                aria-label="Show an example snack-bar"
+              ></app-movies-item-box>
+            </figure>
+          </div>
+          <button
+            type="button"
+            class="btn btn-block btn-primary load-more"
+            [hidden]="loadMoreState"
+            (click)="loadMore()"
+          >
+            Load More
+          </button>
+        </section>
+      </div>
+    </article>
+  </div>
+</section>

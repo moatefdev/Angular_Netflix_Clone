@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<article>
+  <section class="row mt-2">
+    <div class="container-fluid">
+      <div class="category d-flex">
+        <h2 class="h3">TVs</h2>
+      </div>
+      <section class="items">
+        <figure *ngFor="let item of tvs">
+          <img
+            [src]="imgLink + item.poster_path"
+            alt="{{ item.title ?? 'Unknown' }}"
+            (click)="routeById(item.id, item)"
+          />
+          <figcaption class="font-weight-bold">
+            {{ item.title || (item.name ?? "Unknown") }}
+          </figcaption>
+          <p class="lead text-center small">{{ item.release_date }}</p>
+          <button class="btn" (click)="addToFav(item, imgLink)">
+            <mat-icon>favorite</mat-icon> Wishlist
+          </button>
+        </figure>
+      </section>
+    </div>
+  </section>
+</article>

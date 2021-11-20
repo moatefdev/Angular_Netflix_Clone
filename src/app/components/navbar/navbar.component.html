@@ -1,0 +1,24 @@
+<header>
+  <div class="row">
+    <div class="container-fluid">
+      <div class="top_bar">
+        <nav>
+          <a routerLink="/home">Home</a>
+          <a routerLink="/tvs">TV Programmes</a>
+          <a routerLink="/movies">Movies</a>
+          <a routerLink="/mylist">My List</a>
+        </nav>
+        <div class="user">
+          <button (click)="toggleUserMenu()">
+            <i class="fas fa-user"></i>
+          </button>
+          <ul [hidden]="hidden">
+            <li>Profile</li>
+            <li>Settings</li>
+            <li (click)="logout()">Log Out</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

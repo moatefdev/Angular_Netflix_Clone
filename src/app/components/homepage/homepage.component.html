@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<article>
+  <section class="row mt-2">
+    <div class="container-fluid">
+      <div class="category d-flex">
+        <h2 class="h3">{{ mainCategoriesText || "Trendings" }}</h2>
+        <select
+          class="ms-auto"
+          #myMainCategory
+          (change)="
+            onChangeMainCategoty(myMainCategory.value, myMainCategory.options)
+          "
+        >
+          <option value="trendings">Trendings</option>
+          <option value="topRated">Top Rated</option>
+          <option value="popular">Popular on Netflix</option>
+        </select>
+      </div>
+      <section class="items">
+        <figure *ngFor="let item of mainCategories">
+          <img
+            [src]="imgLink + item.poster_path"
+            alt="{{ item.title ?? 'Unknown' }}"
+            (click)="routeById(item.id, item)"
+          />
+          <figcaption class="font-weight-bold">
+            {{ item.title || (item.name ?? "Unknown") }}
+          </figcaption>
+          <button class="btn" (click)="addToFav(item, imgLink)">
+            <i class="fas fa-heart"></i>
+            Wishlist
+          </button>
+        </figure>
+      </section>
+      <!-- <button type="button" class="btn btn-block btn-primary load-more">
+        Load More
+      </button> -->
+    </div>
+  </section>
+</article>

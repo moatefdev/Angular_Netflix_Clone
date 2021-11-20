@@ -1,0 +1,24 @@
+img {
+  border-radius: 4px;
+  max-width: 100%;
+}
+
+figcaption {
+  min-height: fit-content;
+  font-size: 1em;
+  text-align: center;
+  margin: 15px 0;
+}
+
+button {
+  background-color: #fff;
+  color: #f44336;
+  margin: 15px auto;
+  display: flex;
+  border: 1px solid #f44336;
+  transition: 0.4s;
+  &:hover {
+    background-color: #f44336;
+    color: #fff;
+  }
+}

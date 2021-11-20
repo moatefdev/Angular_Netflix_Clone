@@ -1,0 +1,12 @@
+<img
+  [src]="imgLink + item.poster_path"
+  alt="{{ item.title ?? 'Unknown' }}"
+  (click)="routeById(item.id, item)"
+/>
+<figcaption class="font-weight-bold">
+  {{ item.title || (item.name ?? "Unknown") }}
+</figcaption>
+<p class="lead text-center small">{{ item.release_date }}</p>
+<button class="btn" (click)="addToFav(item)">
+  <mat-icon>favorite</mat-icon>Wishlist
+</button>
