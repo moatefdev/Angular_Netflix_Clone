@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, NgForm } from '@angular/forms';
-// import { IRegisterForm } from 'src/app/shared/generalObject';
-// import { db } from './../../shared/registerDB';
 import { CURRENT_USER_SESSION } from './../../shared/registerDB';
 import { Router } from '@angular/router';
 
@@ -39,7 +37,7 @@ export class LoginComponent implements OnInit {
         if (CURRENT_USER_SESSION.length === 0) {
           /*
             Setting sessionStorage value by getting it from localStorage
-            by getting it the username in the login form, whic is
+            by getting it the username in the login form, which is
             the key of the local storage data.
           */
 
@@ -86,9 +84,9 @@ export class LoginComponent implements OnInit {
     for (let i = 0; i < charCode.length; i++) {
       hashedPass += String.fromCharCode(charCode[i]);
     }
+    // console.log(pass);
+    // console.log(charCode);
+    // console.log(hashedPass);
     return hashedPass;
-    console.log(pass);
-    console.log(charCode);
-    console.log(hashedPass);
   }
 }

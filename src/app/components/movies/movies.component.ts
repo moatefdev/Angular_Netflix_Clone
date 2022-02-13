@@ -46,10 +46,6 @@ export class MoviesComponent implements OnInit {
     this.loadDataOnScroll();
   }
 
-  // routeById(id: number) {
-  //   this.route.navigate([`/details/${id}/movie`]);
-  // }
-
   openSnackBar() {
     if (this.isItemAddedToFavs === false) {
       this._snackBar.openFromComponent(PizzaPartyComponent, {
@@ -112,9 +108,6 @@ export class MoviesComponent implements OnInit {
           document.body.offsetHeight - 30 &&
         this.searchBtnIsHidden !== true
       ) {
-        // this.loadMore();
-        // setTimeout(() => {
-        // }, 2000);
         console.log('done');
       }
     };

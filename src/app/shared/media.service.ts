@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ApiConfig } from './apiConfig';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { IMediaBox } from './generalObjects';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -70,10 +68,3 @@ export class Movies {
     );
   }
 }
-
-// @Injectable()
-// export class MyList {
-//   myList: any[] = [];
-// }
-
-// Observable<Array<IMediaBox>>

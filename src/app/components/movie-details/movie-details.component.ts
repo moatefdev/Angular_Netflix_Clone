@@ -23,7 +23,6 @@ export class MovieDetailsComponent implements OnInit {
   movie_title = '';
   movie_trailer_url: any = '';
   itemDetails: any[] = [];
-  // imgLink = 'https://image.tmdb.org/t/p/w500/';
   imgLink = 'https://image.tmdb.org/t/p/original/';
   voteAverageValue: any = '';
   similar: any[] = [];
@@ -82,10 +81,6 @@ export class MovieDetailsComponent implements OnInit {
         this.movie_title = '❌ No Movie Trailer Available';
       }
     });
-  }
-
-  getMovieBackgroundImg() {
-    const movieId = this.route.snapshot.paramMap.get('id');
   }
 
   calcPercentageOfVoteAverage(vote_average: any) {
@@ -150,6 +145,7 @@ export class MovieDetailsComponent implements OnInit {
       console.log(this.casts);
     });
   }
+
   getTVCasts() {
     this.movies.getTVCasts(Number(this.movieId)).subscribe((data: any) => {
       if (this.casts.length !== 0) {
